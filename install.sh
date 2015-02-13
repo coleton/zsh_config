@@ -1,5 +1,5 @@
 path=$(pwd)
-cp ./vimrc ~/.vimrc
+cp ./.vimrc ~/.vimrc
 cd ~/
 curl -L http://install.ohmyz.sh | sh
 sed 's/^ZSH_THEME.*/ZSH_THEME="pygmalion"/' ~/.zshrc
