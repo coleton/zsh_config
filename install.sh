@@ -2,7 +2,7 @@ path=$(pwd)
 cp ./.vimrc ~/.vimrc
 cd ~/
 curl -L http://install.ohmyz.sh | sh
-sed 's/^ZSH_THEME.*/ZSH_THEME="pygmalion"/' ~/.zshrc
+sed -i 's/^ZSH_THEME=.*/ZSH_THEME="pygmalion"/' ~/.zshrc
 echo 'alias c="clear"' | tee -a ~/.zshrc
 echo 'alias e="exit"' | tee -a ~/.zshrc
 mkdir -p ~/.vim/bundle
