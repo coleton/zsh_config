@@ -2,7 +2,6 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " highlighting
-set relativenumber
 syntax on
 set background=dark
 set cursorline
