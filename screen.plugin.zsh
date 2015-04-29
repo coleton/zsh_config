@@ -16,5 +16,5 @@ if [[ -z "$STY" && -z "$EMACS" && -z "$VIM" ]] && ( \
   # || ( [[ -z "$SSH_TTY" ]] )
   \
 ); then
-  screen -S "$(whoami)-$(date +"%H-%M-%S-%b-%e-%G")"
+  screen -S "$(whoami)-$(date +"%H-%M-%S-%b-%d-%G")"
 fi
