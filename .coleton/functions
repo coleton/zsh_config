@@ -2,3 +2,21 @@ bcrypt() {
   PASSWORD=$(echo $1 | tr -d '\n')
   python3 -c "import bcrypt; print(bcrypt.hashpw('$PASSWORD',bcrypt.gensalt(log_rounds=12)))"
 }
+
+nmap() {
+  docker pull cyberwatch/nmap
+  mkdir -p $(pwd)/nmap
+  docker container run --rm -it -v $(pwd)/nmap:/tmp/nmap/ cyberwatch/nmap "$@"
+}
+
+eyewitness-file() {
+  docker pull ly4e/eyewitness-docker
+  mkdir -p $(pwd)/EyeWitness
+  docker container run --rm -it -v $(pwd)/EyeWitness:/tmp/EyeWitness/ ly4e/eyewitness-docker --headless -f $1
+}
+
+eyewitness-nmap() {
+  docker pull ly4e/eyewitness-docker
+  mkdir -p $(pwd)/EyeWitness
+  docker container run --rm -it -v $(pwd)/EyeWitness:/tmp/EyeWitness/ ly4e/eyewitness-docker --headless -x $1
+}
