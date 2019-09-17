@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>albumName</key>
+	<string>Good Ones Never Last</string>
+	<key>artistName</key>
+	<string>Kolby Cooper</string>
+	<key>coverURL</key>
+	<string>/Playbox.widget/lib/cover692.jpg</string>
+	<key>currentPosition</key>
+	<string>125</string>
+	<key>isLoved</key>
+	<string>false</string>
+	<key>oldFilename</key>
+	<string>/Users/cpierson/Library/Application Support/Übersicht/widgets/Playbox.widget/lib/cover692.jpg</string>
+	<key>songChanged</key>
+	<string>false</string>
+	<key>songDuration</key>
+	<string>197</string>
+	<key>songName</key>
+	<string>Leave Me My Heart</string>
+</dict>
+</plist>
