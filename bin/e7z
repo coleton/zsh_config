@@ -1,0 +1,30 @@
+#!/bin/bash
+ARCHIVE=
+ARGUMENTS=
+COMMAND=
+PUBLIC_KEY=
+PASSWORD=$(openssl rand -hex 32)
+while [ $# -gt 0 ]
+do
+        case $1 in
+                -k) PUBLIC_KEY=$2;
+                        shift
+                        ;;
+                a) COMMAND=$1
+                        shift
+                        ARCHIVE=$1
+                        shift
+                        ARGUMENTS=$*
+                        break
+                        ;;
+                *) echo >&2 "usage: $0 -k keyfile -base-dir /tmp/ a ..."
+                    exit 1;;
+        esac
+        shift
+done
+
+if [ -z "$PUBLIC_KEY" ]; then echo "Missing public key" && exit 1; fi
+
+echo $PASSWORD | /usr/bin/openssl rsautl -encrypt -inkey $PUBLIC_KEY -pubin > "$ARCHIVE.ssl"
+
+7z a -p$PASSWORD $ARCHIVE $ARGUMENTS
