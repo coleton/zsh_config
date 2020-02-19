@@ -1,30 +1,54 @@
 #!/bin/bash
+ACTION=
 ARCHIVE=
-ARGUMENTS=
-COMMAND=
+DIRECTORY=
 PUBLIC_KEY=
-PASSWORD=$(openssl rand -hex 32)
+PRIVATE_KEY=
+PASSWORD=
+USAGE="usage $0 -action encrypt -pub key.pub -archive /tmp/archive.7z -directory /tmp/dir\nor\nusage $0 -action decrypt -priv key.pem -archive /tmp/archive.7z -directory /tmp/dir"
 while [ $# -gt 0 ]
 do
         case $1 in
-                -k) PUBLIC_KEY=$2;
+                -action) ACTION=$2
                         shift
                         ;;
-                a) COMMAND=$1
+                -pub) PUBLIC_KEY=$2;
                         shift
-                        ARCHIVE=$1
-                        shift
-                        ARGUMENTS=$*
-                        break
                         ;;
-                *) echo >&2 "usage: $0 -k keyfile -base-dir /tmp/ a ..."
+                -priv) PRIVATE_KEY=$2
+                        shift
+                        ;;
+                -archive) ARCHIVE=$2
+                        shift
+                        ;;
+                -directory) DIRECTORY=$2;
+                        shift
+                        ;;
+                *) echo >&2 "usage: $0 -pub publickey.pub -a /tmp/archive.7z -d /tmp/dir"
                     exit 1;;
         esac
         shift
 done
 
-if [ -z "$PUBLIC_KEY" ]; then echo "Missing public key" && exit 1; fi
+if [ -z "$ACTION" ]; then echo "[-] Missing -action value..." && echo -e $USAGE && exit 1; fi
+if [ -z "$ARCHIVE" ]; then echo "[-] Missing -archive value..." && echo -e $USAGE && exit 1; fi
+if [ -z "$DIRECTORY" ]; then echo "[-] Missing -directory value..." && echo -e $USAGE && exit 1; fi
 
-echo $PASSWORD | /usr/bin/openssl rsautl -encrypt -inkey $PUBLIC_KEY -pubin > "$ARCHIVE.ssl"
-
-7z a -p$PASSWORD $ARCHIVE $ARGUMENTS
+case $ACTION in
+  encrypt)
+    if [ -z "$PUBLIC_KEY" ]; then echo "[-] Missing public key for encryption..." && echo -e $USAGE && exit 1; fi
+    PASSWORD=$(openssl rand -hex 32)
+    echo $PASSWORD | /usr/bin/openssl rsautl -encrypt -inkey $PUBLIC_KEY -pubin > "$ARCHIVE.ssl"
+    7z a -t7z -p$PASSWORD $ARCHIVE $DIRECTORY
+    ;;
+  decrypt)
+    if [ -z "$PRIVATE_KEY" ]; then echo "[-] Missing private key for decryption..." && echo -e $USAGE && exit 1; fi
+    PASSWORD=$(cat "$ARCHIVE.ssl" | openssl rsautl -decrypt -inkey $PRIVATE_KEY)
+    7z x -t7z -p$PASSWORD $ARCHIVE -o$DIRECTORY
+    ;;
+  *)
+    echo "[-] Invalid action..."
+    echo -e $USAGE
+    exit 1
+    ;;
+esac
