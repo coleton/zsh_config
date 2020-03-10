@@ -43,7 +43,7 @@
     "Green Component" : 0.54509803921568623
   },
   "Rows" : 35,
-  "Default Bookmark" : "No",
+  "Default Bookmark" : "Yes",
   "Ansi 5 Color" : {
     "Red Component" : 0.82745098039215681,
     "Color Space" : "sRGB",
@@ -93,7 +93,7 @@
   "Prompt Before Closing 2" : false,
   "BM Growl" : true,
   "Command" : "",
-  "Description" : "Default",
+  "Description" : "Coleton's Profile",
   "AWDS Pane Directory" : "",
   "Disable Window Resizing" : true,
   "Screen" : -1,
@@ -377,7 +377,7 @@
     "Blue Component" : 0.63137254901960782,
     "Green Component" : 0.63137254901960782
   },
-  "Name" : "Default",
+  "Name" : "iTerm2",
   "Cursor Text Color" : {
     "Red Component" : 0.027450980392156862,
     "Color Space" : "sRGB",
