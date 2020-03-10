@@ -45,7 +45,7 @@ set softtabstop=2
 set tabstop=2
 
 " Set text width to 80 characters
-set textwidth=80
+" set textwidth=80
 
 " folding settings
 set foldmethod=indent
