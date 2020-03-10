@@ -1,0 +1,27 @@
+# Setup custom variables
+ZSH_THEME="pygmalion"
+plugins=(screen fzf)
+
+# Handle colors
+export TERM=xterm-256color
+
+# Import custom stuff
+. ~/.coleton/init
+
+# Setup GO paths
+export GOPATH="${HOME}/.go"
+export GOROOT="/usr/local/opt/go/libexec"
+
+# Setup ZPLUG
+#export ZPLUG_HOME=/usr/local/opt/zplug
+#source $ZPLUG_HOME/init.zsh
+#eval "$(direnv hook zsh)"
+
+# Setup Fuzzy Finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin:$HOME/.bin"
+
+# Enable history timestamps
+export HISTTIMEFORMAT="%d/%m/%y %T "
