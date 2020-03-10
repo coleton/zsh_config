@@ -13,6 +13,8 @@ else
   brew update
 fi
 
+brew install tree
+brew install ack
 brew install cask iterm2
 brew install cask atom
 brew install go

@@ -1,0 +1,5 @@
+[user]
+  name = Coleton Pierson
+  email = coleton.pierson@gmail.com
+[core]
+  excludesfile = $HOME/.gitignore
