@@ -20,3 +20,5 @@ cp ./screen.plugin.zsh ~/.oh-my-zsh/custom/plugins/screen/screen.plugin.zsh
 sed -i 's/^plugins=(/plugins=(screen /' ~/.zshrc
 cp -r .coleton ~/
 echo ". ~/.coleton/init" | tee -a ~/.zshrc
+cp ./bin/* /usr/local/bin
+cp ./iterm2-profile.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/
