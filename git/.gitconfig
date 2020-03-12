@@ -3,3 +3,5 @@
   email = coleton.pierson@gmail.com
 [core]
   excludesfile = $HOME/.gitignore
+[init]
+  templatedir = $HOME/.git-templates
