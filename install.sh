@@ -11,6 +11,7 @@ ln -sfn $current_dir/bin/ ~/.bin
 ln -sfn $current_dir/iterm2/profile.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/profile.json
 ln -sfn $current_dir/.coleton ~/.coleton
 ln -sfn $current_dir/git/.gitignore ~/.gitignore
+ln -sfn $current_dir/git/.git-template ~/.git-template
 cp $current_dir/git/.gitconfig ~/.gitconfig
 
 # Replace static variables

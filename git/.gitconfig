@@ -4,4 +4,4 @@
 [core]
   excludesfile = $HOME/.gitignore
 [init]
-  templatedir = $HOME/.git-templates
+  templatedir = $HOME/.git-template
