@@ -4,7 +4,6 @@ current_dir=$(pwd)
 
 # Setup soft links
 echo "Setting up soft links..."
-ln -sfn $current_dir/zsh/.zshrc_custom ~/.zshrc_custom
 ln -sfn $current_dir/vim/.vimrc ~/.vimrc
 ln -sfn $current_dir/screen./.screenrc ~/.screenrc
 ln -sfn $current_dir/bin/ ~/.bin
@@ -30,8 +29,8 @@ else
   echo "Oh-My-ZSH already installed..."
 fi
 
-if ! grep -q zshrc_custom "$HOME/.zshrc"; then
-  echo ". ~/.zshrc_custom" | tee -a ~/.zshrc
+if ! grep -q coleton "$HOME/.zshrc"; then
+  echo "source ~/.coleton/init" | tee -a ~/.zshrc
 fi
 
 # Setup ZSH Screen plugin
