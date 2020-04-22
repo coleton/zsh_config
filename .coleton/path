@@ -1,0 +1,29 @@
+# Setup default editor
+export EDITOR="subl --wait"
+
+# Handle colors
+export TERM=xterm-256color
+
+# Setup GO paths
+export GOPATH="${HOME}/.go"
+export GOROOT="/usr/local/opt/go/libexec"
+
+# Setup ZPLUG
+#export ZPLUG_HOME=/usr/local/opt/zplug
+#source $ZPLUG_HOME/init.zsh
+#eval "$(direnv hook zsh)"
+
+# Setup Fuzzy Finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Setup RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Setup PATH
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.bin"
+export PATH="$PATH:$GOPATH/bin"
+
+# Enable history timestamps
+export HISTTIMEFORMAT="%d/%m/%y %T "
