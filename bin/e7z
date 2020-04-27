@@ -39,12 +39,12 @@ case $ACTION in
     if [ -z "$PUBLIC_KEY" ]; then echo "[-] Missing public key for encryption..." && echo -e $USAGE && exit 1; fi
     PASSWORD=$(openssl rand -hex 32)
     echo $PASSWORD | /usr/bin/openssl rsautl -encrypt -inkey $PUBLIC_KEY -pubin > "$ARCHIVE.ssl"
-    7z a -t7z -p$PASSWORD "$ARCHIVE" "$DIRECTORY"
+    /usr/local/bin/7z a -t7z -p$PASSWORD "$ARCHIVE" "$DIRECTORY"
     ;;
   decrypt)
     if [ -z "$PRIVATE_KEY" ]; then echo "[-] Missing private key for decryption..." && echo -e $USAGE && exit 1; fi
     PASSWORD=$(cat "$ARCHIVE.ssl" | openssl rsautl -decrypt -inkey $PRIVATE_KEY)
-    7z x -t7z -p$PASSWORD "$ARCHIVE" -o"$DIRECTORY"
+    /usr/local/bin/7z x -t7z -p$PASSWORD "$ARCHIVE" -o"$DIRECTORY"
     ;;
   *)
     echo "[-] Invalid action..."
