@@ -24,7 +24,6 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   echo "Installing Oh-My-ZSH..."
   cd ~/
   curl -L http://install.ohmyz.sh | sh
-  echo ". ~/.zshrc_custom" | tee -a ~/.zshrc
 else
   echo "Oh-My-ZSH already installed..."
 fi

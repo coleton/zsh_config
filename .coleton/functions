@@ -43,3 +43,19 @@ decode-jwt(){
    decode_base64_url $(echo -n $1 | cut -d "." -f 1) | jq .
    decode_base64_url $(echo -n $1 | cut -d "." -f 2) | jq .
 }
+
+parse-osquery(){
+  while read p; do
+    if [[ "${p}" =~ ^[\+-\s]+$ ]]; then
+      continue
+    fi
+    hostname=$(echo "${p}" | cut -d '|' -f 3 | awk '{$1=$1};1')
+    if [[ !  -z  "${hostname}"  ]]; then
+      echo "${hostname}" >> "$2"
+    fi
+  done < $1
+}
+
+cping(){
+  ping -c 1 $1 | awk -F" |:" '/from/{print $4}' | pbcopy
+}
