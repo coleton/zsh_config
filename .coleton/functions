@@ -57,5 +57,5 @@ parse-osquery(){
 }
 
 cping(){
-  ping -c 1 $1 | awk -F" |:" '/from/{print $4}' | pbcopy
+  ping -c 1 $1 | awk -F" |:" '/from/{print $4}' | tr -d '\n' | pbcopy
 }
