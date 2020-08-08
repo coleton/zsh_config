@@ -3,5 +3,6 @@
   email = coleton.pierson@gmail.com
 [core]
   excludesfile = $HOME/.gitignore
+  editor = vim
 [init]
   templatedir = $HOME/.git-template

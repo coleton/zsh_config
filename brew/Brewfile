@@ -3,6 +3,7 @@ tap 'homebrew/cask'
 
 # Binaries
 brew 'ack'
+brew 'coreutils'
 brew 'dos2unix'
 brew 'fzf'
 brew 'geoip'
@@ -19,15 +20,17 @@ brew 'unrar'
 brew 'wget'
 
 # Casks
-cask '1password'
-cask 'atom'
-cask 'evernote'
-cask 'firefox'
-cask 'github'
-cask 'goland'
-cask 'google-chrome'
-cask 'iterm2'
-cask 'little-snitch'
-cask 'rubymine'
-cask 'vlc'
-cask 'webstorm'
+cask '1password' unless system "mdfind -name 'kMDItemFSName==\"1Password 7.app\"' | grep -q 1Password"
+cask 'atom' unless system "mdfind -name 'kMDItemFSName==\"Atom.app\"' | grep -q Atom"
+cask 'evernote' unless system "mdfind -name 'kMDItemFSName==\"Evernote.app\"' | grep -q Evernote"
+cask 'firefox' unless system "mdfind -name 'kMDItemFSName==\"Firefox.app\"' | grep -q Firefox"
+cask 'github' unless system "mdfind -name 'kMDItemFSName==\"Github.app\"' | grep -q Github"
+cask 'gpg-suite' unless system "mdfind -name 'kMDItemFSName==\"GPG Keychain.app\"' | grep -q GPG"
+cask 'goland' unless system "mdfind -name 'kMDItemFSName==\"GoLand.app\"' | grep -q GoLand"
+cask 'google-chrome' unless system "mdfind -name 'kMDItemFSName==\"Google Chrome.app\"' | grep -q Google"
+cask 'iterm2' unless system "mdfind -name 'kMDItemFSName==\"iTerm.app\"' | grep -q iTerm"
+cask 'keybase' unless system "mdfind -name 'kMDItemFSName==\"Keybase.app\"' | grep -q Keybase"
+cask 'little-snitch' unless system "mdfind -name 'kMDItemFSName==\"Little Snitch Configuration.app\"' | grep -q Snitch"
+cask 'rubymine' unless system "mdfind -name 'kMDItemFSName==\"RubyMine.app\"' | grep -q RubyMine"
+cask 'vlc' unless system "mdfind -name 'kMDItemFSName==\"VLC.app\"' | grep -q VLC"
+cask 'webstorm' unless system "mdfind -name 'kMDItemFSName==\"WebStorm.app\"' | grep -q WebStorm"

@@ -13,12 +13,6 @@ ln -sfn $current_dir/git/.gitignore ~/.gitignore
 ln -sfn $current_dir/git/.git-template ~/.git-template
 cp $current_dir/git/.gitconfig ~/.gitconfig
 
-# Replace static variables
-echo "Replacing static variables..."
-sed -i '' "s|\$HOME|$HOME|g" ~/.gitconfig
-sed -i '' "s|ZSH_THEME=\".*\"|ZSH_THEME=\"pygmalion\"|g" ~/.zshrc
-sed -i '' "s|plugins=\(.*\)|plugins=\(screen fzf\)|g" ~/.zshrc
-
 # Install Oh-My-Zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   echo "Installing Oh-My-ZSH..."
@@ -31,6 +25,12 @@ fi
 if ! grep -q coleton "$HOME/.zshrc"; then
   echo "source ~/.coleton/init" | tee -a ~/.zshrc
 fi
+
+# Replace static variables
+echo "Replacing static variables..."
+sed -i '' "s|\$HOME|$HOME|g" ~/.gitconfig
+sed -i '' "s|ZSH_THEME=\".*\"|ZSH_THEME=\"pygmalion\"|g" ~/.zshrc
+sed -i '' "s|plugins=\(.*\)|plugins=\(screen fzf\)|g" ~/.zshrc
 
 # Setup ZSH Screen plugin
 mkdir -p ~/.oh-my-zsh/custom/plugins/screen/

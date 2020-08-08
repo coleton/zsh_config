@@ -1,3 +1,4 @@
 . ~/.coleton/aliases
 . ~/.coleton/functions
 . ~/.coleton/path
+. ~/.coleton/custom

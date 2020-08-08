@@ -16,6 +16,9 @@ Thumbs.db
 # Compiled C++ files
 *.out
 
+# Jetbrains Config
+.idea
+
 # Application specific files
 venv
 *.env
